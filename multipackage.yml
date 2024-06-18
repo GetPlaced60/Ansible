@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Installing packages vim curl unzip nginx
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+      loop:
+        - vim
+        - curl
+        - unzip
+        - nginx

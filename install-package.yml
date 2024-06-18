@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  become: true
+  task: 
+    - name: Install Package git
+      apt: name=git state=present
+
+    - name: Install Package
+      apt: name=httpd state=present
+
+    - name: Start httpd service
+      service: name=httpd state=started
